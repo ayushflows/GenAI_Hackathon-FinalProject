@@ -20,13 +20,41 @@ const userData = {
   socialConnections: "John is highly sociable, actively engaging with his community and participating in events that promote unity and collaboration."
 };
 
+const cardsBg = [
+  {
+    id: 1,
+    gradient: 'from-[#ff34341f] via-[#22252d] to-[#22252d]',
+    border: 'border-[#ff34341f]',
+  },
+  {
+    id: 2,
+    gradient: 'from-[#45ff341f] via-[#22252d] to-[#22252d]',
+    border: 'border-[#45ff341f]',
+  },
+  {
+    id: 3,
+    gradient: 'from-[#3452ff1f] via-[#22252d] to-[#22252d]',
+    border: 'border-[#3452ff1f]',
+  },
+  {
+    id: 4,
+    gradient: 'from-[#f534ff1f] via-[#22252d] to-[#22252d]',
+    border: 'border-[#f534ff1f]',
+  },
+  {
+    id: 5,
+    gradient: 'from-[#a9b8471f] via-[#22252d] to-[#22252d]',
+    border: 'border-[#a9b8471f]',
+  },
+];
+
 function KundliOverview() {
   const aspects = [
-    { title: "Career", content: userData.career, icon: <FaBriefcase className="text-orange-500" /> },
-    { title: "Relationships", content: userData.relationships, icon: <FaHeart className="text-orange-500" /> },
-    { title: "Personal Growth", content: userData.personalGrowth, icon: <FaUserGraduate className="text-orange-500" /> },
-    { title: "Family", content: userData.family, icon: <FaUsers className="text-orange-500" /> },
-    { title: "Social Connections", content: userData.socialConnections, icon: <FaHandshake className="text-orange-500" /> },
+    { title: "Career", content: userData.career, icon: <FaBriefcase className="text-white" /> },
+    { title: "Relationships", content: userData.relationships, icon: <FaHeart className="text-white" /> },
+    { title: "Personal Growth", content: userData.personalGrowth, icon: <FaUserGraduate className="text-white" /> },
+    { title: "Family", content: userData.family, icon: <FaUsers className="text-white" /> },
+    { title: "Social Connections", content: userData.socialConnections, icon: <FaHandshake className="text-white" /> },
   ];
 
   return (
@@ -58,15 +86,15 @@ function KundliOverview() {
         </div>
       </div>
 
-      <div className="mt-6 space-y-8">
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         {aspects.map((aspect, index) => (
           <div
             key={index}
-            className="p-6 bg-gradient-to-br from-[#1f2937] to-[#111827] rounded-lg shadow-md border border-gray-600 flex items-start gap-4"
+            className={`bg-gradient-to-bl ${cardsBg[index].gradient} ${cardsBg[index].border} backdrop-blur-sm bg-opacity-30  p-6 rounded-lg shadow-md border flex items-start gap-4 transition-all duration-300 hover:bg-opacity-50 hover:scale-105 hover:shadow-2xl`}
           >
-            <div className="text-4xl">{aspect.icon}</div>
+            <div className="text-3xl">{aspect.icon}</div>
             <div>
-              <h3 className="text-xl font-bold mb-2 text-orange-500">{aspect.title}</h3>
+              <h3 className="text-xl font-bold mb-2 text-white transition-all duration-300 hover:text-opacity-80">{aspect.title}</h3>
               <p className="text-md leading-relaxed text-justify text-white">{aspect.content}</p>
             </div>
           </div>

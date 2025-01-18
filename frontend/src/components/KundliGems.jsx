@@ -1,4 +1,5 @@
 import React from "react";
+import { WobbleCard } from "./ui/wobble-card";
 
 // Sample gemstones data
 const gemsData = [
@@ -50,18 +51,23 @@ function KundliGems() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {gemsData.map((gem, index) => (
-          <div
+          <WobbleCard
             key={index}
-            className="bg-gradient-to-bl from-gray-800 to-gray-700 rounded-xl flex flex-col items-start p-4 border-2 border-gray-600 shadow-md"
+            className="bg-[#22252D] rounded-xl flex flex-col items-start p-6 border-2 border-[#1a5e7d23] border-opacity-45 shadow-md"
           >
-            <div className="flex items-center mb-2">
-              {/* <img src={gem.icon} alt={`${gem.name} icon`} className="w-8 h-8 mr-2" /> */}
-              <h3 className="text-xl text-[#ebebeb]">{gem.name}</h3>
+            <div className="flex items-center mb-4">
+              <h3 className="text-xl text-[#f7a800] font-semibold">{gem.name}</h3>
             </div>
-            <p className="text-[#ebebeb] mb-1"><strong>Purpose:</strong> {gem.purpose}</p>
-            <p className="text-[#ebebeb] mb-1"><strong>Description:</strong> {gem.description}</p>
-            <p className="text-[#ebebeb]"><strong>Benefit:</strong> {gem.benefit}</p>
-          </div>
+            <div className="mb-3">
+              <p className="text-[#d3d3d3] mb-1"><strong>Purpose:</strong> {gem.purpose}</p>
+            </div>
+            <div className="mb-3">
+              <p className="text-[#d3d3d3] mb-1"><strong>Description:</strong> {gem.description}</p>
+            </div>
+            <div>
+              <p className="text-[#d3d3d3]"><strong>Benefit:</strong> {gem.benefit}</p>
+            </div>
+          </WobbleCard>
         ))}
       </div>
     </div>
