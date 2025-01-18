@@ -17,13 +17,42 @@ Take a look at it: [https://teamlogix.web.app/](https://teamlogix.web.app/)
 
 
 ### Objective
-The project aims to develop an advanced analytics module utilizing **Langflow** for workflow automation and **DataStax Astra DB** for scalable data storage.
-
+The project aims to develop an AI-driven platform that generates personalized spiritual guidance through astrology and numerology. The system provides insights, recommendations, and rituals based on user birth details, along with an interactive chatbot for spiritual advice.
 
 
 ## **Live Link**
 You can explore the live version of the project by clicking on the link below:
 [https://teamlogix.web.app/](https://teamlogix.web.app/)
+
+## **Key Features**
+1. **Input Details**: User provides Name, Date of Birth, Time, Gender, State, and City.
+2. **Kundali & Horoscope Generation**:
+   - Insights on career, relationships, personal growth, family, and social connections.
+   - Daily and monthly horoscopes.
+3. **AI Recommendations**:
+   - Personalized gemstone suggestions.
+   - Ritual (Pooja) recommendations with detailed explanations.
+   - Do’s and Don’ts based on astrological insights.
+4. **Spiritual Content Delivery**:
+   - Meditation and workout suggestions tailored to horoscope insights.
+   - Customized sleep content for user needs.
+5. **Chatbot Interaction**:
+   - Interactive chatbot providing spiritual advice.
+   - Explains recommendations and predictions in natural language.
+
+## **How It Works**
+1. **Data Collection**:
+   - Users input their birth details into the platform.
+2. **Automation with Selenium**:
+   - Data is fetched from trusted sources such as the Astrosage website using Selenium.
+3. **Processing with Langflow**:
+   - Collected data is processed through a Langflow NLP pipeline to extract meaningful insights in JSON format.
+4. **Insights and Output**:
+   - The platform generates personalized predictions and recommendations.
+   - Results are presented in a user-friendly format, with options for detailed chatbot interaction.
+5. **Interactive Chatbot**:
+   - Provides explanations for the generated horoscope, recommendations, and spiritual advice.
+
 
 
 ## **Technologies Used**
@@ -41,7 +70,7 @@ You can explore the live version of the project by clicking on the link below:
 | Name               | Title                      | Contact                        | Profile Image |
 |---------------------|----------------------------|--------------------------------|---------------|
 | **Ayush Tripathi**  | Team Leader & Frontend Developer | [ayushflows@gmail.com](mailto:ayushflows@gmail.com) | <img src="https://avatars.githubusercontent.com/u/124663413?s=400&u=76f022cb34ee30b47d3b7bc4c911e6f40ee4b731&v=4" alt="Ayush Tripathi" width="100px" /> |
-| **Ankur Kumar**     | UI/UX Designer & Presenter | [22cs3073@rgipt.ac.in](mailto:22cs3073@rgipt.ac.in) | <img src="https://avatars.githubusercontent.com/u/128875232?v=4" alt="Ankur Kumar" width="100px" /> |
+| **Ankur Kumar**     | UI/UX Designer & Data Analyst | [22cs3073@rgipt.ac.in](mailto:22cs3073@rgipt.ac.in) | <img src="https://avatars.githubusercontent.com/u/128875232?v=4" alt="Ankur Kumar" width="100px" /> |
 | **Bhagawat Karhale**| AI Developer              | [bhagawatkarhale7@gmail.com](mailto:bhagawatkarhale7@gmail.com) | <img src="https://avatars.githubusercontent.com/u/145754489?v=4" alt="Bhagawat Karhale" width="100px" /> |
 | **Nitesh Saini**    | Backend Developer          | [22cs2015@rgipt.ac.in](mailto:22cs2015@rgipt.ac.in) | <img src="https://avatars.githubusercontent.com/u/139841989?v=4" alt="Nitesh Saini" width="100px" /> |
 | **Rishabh Kumar**   | Data Analyst               | [22cs3047@rgipt.ac.in](mailto:22cs3047@rgipt.ac.in) | <img src="https://avatars.githubusercontent.com/u/142030870?v=4" alt="Rishabh Kumar" width="100px" /> |
