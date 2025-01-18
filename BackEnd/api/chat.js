@@ -8,6 +8,7 @@ class LangflowClient {
 
     async post(endpoint, body, headers = { "Content-Type": "application/json" }) {
         headers["Authorization"] = `Bearer ${this.applicationToken}`;
+        headers["Content-Type"] = "application/json";
         const url = `${this.baseURL}${endpoint}`;
         try {
             const response = await fetch(url, {
@@ -57,6 +58,7 @@ class LangflowClient {
     async runFlow(flowIdOrName, langflowId, inputValue, inputType = 'chat', outputType = 'chat', tweaks = {}, stream = false, onUpdate, onClose, onError) {
         try {
             const initResponse = await this.initiateSession(flowIdOrName, langflowId, inputValue, inputType, outputType, stream, tweaks);
+            console.log('Init Response:', initResponse);
             if (stream && initResponse && initResponse.outputs && initResponse.outputs[0].outputs[0].artifacts.stream_url) {
                 const streamUrl = initResponse.outputs[0].outputs[0].artifacts.stream_url;
                 console.log(`Streaming from: ${streamUrl}`);
@@ -71,18 +73,27 @@ class LangflowClient {
 }
 
 async function main(inputValue, inputType = 'chat', outputType = 'chat', stream = false) {
-    const flowIdOrName = 'e7e5d350-75fc-4411-88a9-e03f94f06926';
-    const langflowId = '6ef0ba06-66f7-4619-ba33-62af3648a8a5';
+    const flowIdOrName = 'chatbot';
+    const langflowId = 'e90516d8-e777-4a84-8fc1-26b7b82e8528';
     const applicationToken = process.env.CHAT_TOKEN;
     const langflowClient = new LangflowClient('https://api.langflow.astra.datastax.com', applicationToken);
 
     try {
         const tweaks = {
-            "ChatInput-JbrIj": {},
-            "Prompt-9SJOV": {},
-            "OpenAIModel-pJqL3": {},
-            "ChatOutput-YhQRF": {}
+            "ChatInput-2cm28": {},
+            "ChatOutput-xit9y": {},
+            "Memory-u9Cym": {},
+            "OpenAIModel-HyXXx": {},
+            "Prompt-VIuAF": {},
+            "ParseData-slC5D": {},
+            "Prompt-MSkEY": {},
+            "OpenAIModel-76ArI": {},
+            "ConditionalRouter-rCGIC": {},
+            "SplitText-b2Ohl": {},
+            "MessagetoData-Cl89h": {},
+            "ParseData-rmE2N": {},
         };
+
         const response = await langflowClient.runFlow(
             flowIdOrName,
             langflowId,
@@ -95,6 +106,7 @@ async function main(inputValue, inputType = 'chat', outputType = 'chat', stream 
             (message) => console.log("Stream Closed:", message), // onClose
             (error) => console.log("Stream Error:", error) // onError
         );
+
         if (!stream && response && response.outputs) {
             const flowOutputs = response.outputs[0];
             const firstComponentOutputs = flowOutputs.outputs[0];
@@ -102,7 +114,7 @@ async function main(inputValue, inputType = 'chat', outputType = 'chat', stream 
             return output.message.text;
         }
     } catch (error) {
-        console.error('Main Error', error.message);
+        console.error('Main Error:', error.message);
     }
 }
 
