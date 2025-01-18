@@ -64,10 +64,13 @@ def get_astrology_report():
     try:
         # Collect user inputs
         inputs = get_user_inputs()
+        if not inputs["input_name"] or not inputs["input_gender"] or not inputs["input_place"]:
+            return jsonify({"error": "Name, gender, and place of birth are required fields."}), 400
+
         driver.get("https://www.astrosage.com/free/free-life-report.asp")
 
         # Wait for the page to load
-        time.sleep(2)
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "Name")))
 
         # Fill in the Name field
         driver.find_element(By.ID, "Name").send_keys(inputs["input_name"])
@@ -93,6 +96,8 @@ def get_astrology_report():
 
         if filtered_options:
             filtered_options[0].click()
+        else:
+            return jsonify({"error": "Failed to select the place. Please check your input."}), 400
 
         # Select Ayanamsa
         Select(driver.find_element(By.ID, "ayanamsa")).select_by_visible_text(inputs["input_ayanamsa"])
@@ -104,8 +109,7 @@ def get_astrology_report():
         driver.find_element(By.NAME, "submit").click()
 
         # Wait for the download link and click to download PDF
-        time.sleep(5)
-        download_link = driver.find_element(By.CSS_SELECTOR, "a[href='vedic-chart-pdf.jsp']").click()
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href='vedic-chart-pdf.jsp']"))).click()
 
         # Wait for the PDF to be downloaded
         time.sleep(10)  # Adjust this depending on network speed and file size
@@ -120,9 +124,16 @@ def get_astrology_report():
                     for page in pdf.pages:
                         text += page.extract_text()
 
+        if not text:
+            return jsonify({"error": "Failed to extract text from the downloaded PDF."}), 500
+
         # Return the extracted text as a JSON response
         print("Extracted text:", text)
         return jsonify({"extracted_text": text})
+
+    except Exception as e:
+        print("Error occurred:", str(e))
+        return jsonify({"error": "An unexpected error occurred.", "details": str(e)}), 500
 
     finally:
         # Close the browser
