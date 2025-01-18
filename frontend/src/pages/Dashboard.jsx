@@ -10,6 +10,7 @@ import KundliPujas from '../components/KundliPujas';
 import KundliGems from '../components/KundliGems';
 import KundliPredictions from '../components/KundliPredictions';
 import KundliInsights from '../components/KundliInsights';
+import KundliSuggestions from '../components/KundliSuggestions';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -87,6 +88,9 @@ function Dashboard() {
             </section>
             <section id="predictions">
                 <KundliPredictions />
+            </section>
+            <section id="suggestions">
+                <KundliSuggestions />
             </section>
             <section id="insights">
                 <KundliInsights />

@@ -55,7 +55,7 @@ function KundliGems() {
             className="bg-gradient-to-bl from-gray-800 to-gray-700 rounded-xl flex flex-col items-start p-4 border-2 border-gray-600 shadow-md"
           >
             <div className="flex items-center mb-2">
-              <img src={gem.icon} alt={`${gem.name} icon`} className="w-8 h-8 mr-2" />
+              {/* <img src={gem.icon} alt={`${gem.name} icon`} className="w-8 h-8 mr-2" /> */}
               <h3 className="text-xl text-[#ebebeb]">{gem.name}</h3>
             </div>
             <p className="text-[#ebebeb] mb-1"><strong>Purpose:</strong> {gem.purpose}</p>

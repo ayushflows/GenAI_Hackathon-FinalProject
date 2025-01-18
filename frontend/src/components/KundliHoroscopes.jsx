@@ -43,7 +43,7 @@ function KundliHoroscopes() {
       <div className="mt-4 p-6 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg text-white border border-gray-600">
         <h3 className="text-xl font-semibold mb-4 text-left underline decoration-orange-500">Daily Horoscope</h3>
         <p className="mb-4">{horoscopeData.daily.paragraph}</p>
-        <h4 className="text-lg font-semibold mb-2 text-orange-500">Things in Favour</h4>
+        <h4 className="text-lg font-semibold mb-2 text-orange-500">Favorable Aspects</h4>
         <ul className="list-disc list-inside mb-4">
           {horoscopeData.daily.inFavour.map((item, index) => (
             <li key={index}>
@@ -52,7 +52,7 @@ function KundliHoroscopes() {
             </li>
           ))}
         </ul>
-        <h4 className="text-lg font-semibold mb-2 text-orange-500">Things Not in Favour</h4>
+        <h4 className="text-lg font-semibold mb-2 text-orange-500">Unfavorable Aspects</h4>
         <ul className="list-disc list-inside">
           {horoscopeData.daily.notInFavour.map((item, index) => (
             <li key={index}>
@@ -66,7 +66,7 @@ function KundliHoroscopes() {
       <div className="mt-6 p-6 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg text-white border border-gray-600">
         <h3 className="text-xl font-semibold mb-4 text-left underline decoration-orange-500">Monthly Horoscope</h3>
         <p className="mb-4">{horoscopeData.monthly.paragraph}</p>
-        <h4 className="text-lg font-semibold mb-2 text-orange-500">Things in Favour</h4>
+        <h4 className="text-lg font-semibold mb-2 text-orange-500">Favorable Aspects</h4>
         <ul className="list-disc list-inside mb-4">
           {horoscopeData.monthly.inFavour.map((item, index) => (
             <li key={index}>
@@ -75,7 +75,7 @@ function KundliHoroscopes() {
             </li>
           ))}
         </ul>
-        <h4 className="text-lg font-semibold mb-2 text-orange-500">Things Not in Favour</h4>
+        <h4 className="text-lg font-semibold mb-2 text-orange-500">Unfavorable Aspects</h4>
         <ul className="list-disc list-inside">
           {horoscopeData.monthly.notInFavour.map((item, index) => (
             <li key={index}>
