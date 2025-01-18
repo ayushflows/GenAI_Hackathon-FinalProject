@@ -16,11 +16,11 @@ const Header = () => {
     }, 100);
   };
   return (
-    <header className="bg-gradient-to-b from-transparent to-transparent text-white px-6 py-4 relative z-20">
-      <div className="max-w-[85%] mx-auto pt-4 flex items-center justify-between">
+    <header className="bg-gradient-to-b from-transparent to-transparent text-white px-6 py-4 relative z-20 ">
+      <div className="max-w-[90%] mx-auto py-3 px-6 flex items-center justify-between glassy-navbar rounded-xl">
         
         <div className="flex items-center space-x-2 cursor-pointer" onClick={()=>navigate("/")}>
-          <img src={logo2} alt="LogiX Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain" />
+          <img src={logo2} alt="LogiX Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain filter invert contrast-100" />
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8E9EAB] to-[#EEF2F3] outfit-big">LogiX
           </div>
         </div>
