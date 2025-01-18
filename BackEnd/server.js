@@ -24,6 +24,7 @@ app.use(cors({
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// server is serving at /genai route
 
 app.use("/", homeRouter);
 app.use("/genai" , dataStaxRouter);
