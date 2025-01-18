@@ -1,0 +1,55 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Cover } from "./ui/cover";
+import bggridImg from "../assets/bgimg.svg";
+import { motion } from "framer-motion";
+
+function HeroSection() {
+  const [animateText, setAnimateText] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateText(true);
+    }, 300);
+  }, []);
+
+  return (
+    <section id="home" className="min-h-screen flex flex-col items-center justify-start text-center sm:px-6 lg:px-8 relative overflow-hidden">
+      <div
+        style={{
+          position: "absolute",
+          top: "-40vh",
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `url(${bggridImg})`,
+          backgroundSize: "120%",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      />
+      <motion.h1
+        className="z-10 outfit-main font-bold leading-tight text-[2.3rem] md:text-[4rem] mt-16 px-2 sm:px-0 2xl:mt-32 text-transparent bg-clip-text bg-gradient-to-r from-[#8E9EAB] to-[#EEF2F3]"
+        initial={{ scale: window.innerWidth < 640 ? 1.1 : 1.7 , y: '20vh' }} 
+        animate={{ scale: animateText ? 1 : window.innerWidth < 640 ? 1.1 : 1.7, y: animateText ? 0 : '20vh' }}
+        transition={{ scale: { duration: 1.5, ease: 'easeInOut' }, y: { duration: 1.5, ease: 'easeInOut' }}}
+      >
+        Your <Cover> AI-Powered </Cover>
+        <br />
+        <span className="inline-block mt-6 sm:mt-4 text-[2.5rem] md:text-[4rem]"> Analytics Dashboard </span>
+      </motion.h1>
+
+      <motion.p
+        className="z-10 text-gray-300 text-[18px] sm:text-xl max-w-[65vw] mt-6 sm:mt-4 px-2 sm:px-0 outfit-small"
+        initial={{ opacity: 0, y: '15vh' }}
+        animate={{ opacity: animateText ? 1 : 0, y: animateText ? 0 : '15vh' }}
+        transition={{ opacity: { duration: 0.7, delay: 0.9 }, y: { duration: 0.7, delay: 0.9 } }}
+      >
+        Revolutionize your profile with AI powered Analytics Dashboard. Save time, boost efficiency, and focus on what matters most —{" "}
+        <span className="font-semibold text-white">More Engagements.</span>
+      </motion.p>
+      
+    </section>
+  );
+}
+
+export default HeroSection;
