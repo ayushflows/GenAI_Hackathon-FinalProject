@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBriefcase, FaHeart, FaUserGraduate, FaUsers, FaHandshake } from "react-icons/fa"; // Import icons
 
 // Sample user data
 const userData = {
@@ -20,6 +21,14 @@ const userData = {
 };
 
 function KundliOverview() {
+  const aspects = [
+    { title: "Career", content: userData.career, icon: <FaBriefcase className="text-orange-500" /> },
+    { title: "Relationships", content: userData.relationships, icon: <FaHeart className="text-orange-500" /> },
+    { title: "Personal Growth", content: userData.personalGrowth, icon: <FaUserGraduate className="text-orange-500" /> },
+    { title: "Family", content: userData.family, icon: <FaUsers className="text-orange-500" /> },
+    { title: "Social Connections", content: userData.socialConnections, icon: <FaHandshake className="text-orange-500" /> },
+  ];
+
   return (
     <div id="overview" className="mx-2 lg:mx-6 xl:mx-12 mb-[40px] md:mb-[90px] inter-regular">
       <div className="flex items-center gap-2">
@@ -49,21 +58,19 @@ function KundliOverview() {
         </div>
       </div>
 
-      <div className="mt-6 p-6 text-white">
-        <h3 className="text-xl font-bold mb-8 text-left text-orange-500 border-b-2 border-orange-500 pb-2">Career</h3>
-        <p className="text-lg leading-relaxed mb-6 text-justify">{userData.career}</p>
-        
-        <h3 className="text-xl font-bold mb-8 text-left text-orange-500 border-b-2 border-orange-500 pb-2">Relationships</h3>
-        <p className="text-lg leading-relaxed mb-6 text-justify">{userData.relationships}</p>
-        
-        <h3 className="text-xl font-bold mb-8 text-left text-orange-500 border-b-2 border-orange-500 pb-2">Personal Growth</h3>
-        <p className="text-lg leading-relaxed mb-6 text-justify">{userData.personalGrowth}</p>
-        
-        <h3 className="text-xl font-bold mb-8 text-left text-orange-500 border-b-2 border-orange-500 pb-2">Family</h3>
-        <p className="text-lg leading-relaxed mb-6 text-justify">{userData.family}</p>
-        
-        <h3 className="text-xl font-bold mb-8 text-left text-orange-500 border-b-2 border-orange-500 pb-2">Social Connections</h3>
-        <p className="text-lg leading-relaxed mb-6 text-justify">{userData.socialConnections}</p>
+      <div className="mt-6 space-y-8">
+        {aspects.map((aspect, index) => (
+          <div
+            key={index}
+            className="p-6 bg-gradient-to-br from-[#1f2937] to-[#111827] rounded-lg shadow-md border border-gray-600 flex items-start gap-4"
+          >
+            <div className="text-4xl">{aspect.icon}</div>
+            <div>
+              <h3 className="text-xl font-bold mb-2 text-orange-500">{aspect.title}</h3>
+              <p className="text-md leading-relaxed text-justify text-white">{aspect.content}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

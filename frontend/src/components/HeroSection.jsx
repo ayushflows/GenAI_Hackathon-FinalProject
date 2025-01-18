@@ -2,15 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Cover } from "./ui/cover";
 import bggridImg from "../assets/bgimg.svg";
 import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 function HeroSection() {
   const [animateText, setAnimateText] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
       setAnimateText(true);
     }, 300);
   }, []);
+
+  const handleGetStarted = () => {
+    console.log("clicked")
+    navigate('/userinput');
+  };
 
   return (
     <section id="home" className="min-h-screen flex flex-col items-center justify-start text-center sm:px-6 lg:px-8 relative overflow-hidden">
@@ -47,7 +54,23 @@ function HeroSection() {
         Revolutionize your profile with AI powered Analytics Dashboard. Save time, boost efficiency, and focus on what matters most —{" "}
         <span className="font-semibold text-white">More Engagements.</span>
       </motion.p>
-      
+      <div className='w-full flex justify-center items-center mt-12 relative inter-regular'>
+      <motion.button
+  className="bg-[#1D3C50] text-[#F5F5F5] font-semibold w-[130px] md:w-[160px] h-[50px] flex justify-center items-center text-[15px] md:text-lg transition-all duration-200 ease-in-out transform shadow-md hover:shadow-lg hover:bg-[#F6A01D] hover:text-[#2D2D2D] hover:scale-105"
+  initial={{ opacity: 0}}
+  animate={{
+    opacity: animateText ? 1 : 0,
+  }}
+  transition={{
+    duration: 0.4,
+    ease: 'easeInOut',
+    delay: 1.2,
+  }}
+  onClick={handleGetStarted}
+>
+  Get Started <span className="ml-2">&rarr;</span>
+</motion.button>
+</div>
     </section>
   );
 }
