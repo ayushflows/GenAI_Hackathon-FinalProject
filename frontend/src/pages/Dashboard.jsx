@@ -4,7 +4,6 @@ import logoImg from "../assets/logix_logo.png";
 import DashboardSections from '../components/DashboardSections';
 import PersonalChatBot from '../components/personalChatbot/PersonalChatBot';
 import KundliOverview from '../components/KundliOverview';
-import KundliBirthChart from '../components/KundliBirthChart';
 import KundliHoroscopes from '../components/KundliHoroscopes';
 import KundliPujas from '../components/KundliPujas';
 import KundliGems from '../components/KundliGems';
@@ -69,14 +68,11 @@ function Dashboard() {
           <DashboardSections setActiveButton={setActiveButton} activeButton={activeButton} onButtonClick={handleButtonClick}/>
         </div>
         <div id='analytics-overview' className='lg:w-[calc(100%-230px)] lg:h-full w-full h-[calc(100vh-60px)] bg-[#2E3139] overflow-y-auto custom-scrollbar'>
-          <h1 className='text-2xl font-normal figtree-regular w-full py-3 text-center text-[#e6e6e6] mb-2'> SoulBuddy - AI-Powered Spiritual Guide</h1>
+          <h1 className='text-2xl font-normal figtree-regular w-full py-3 text-center text-[#e6e6e6] mb-2'> <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#8E9EAB] to-[#EEF2F3] outfit-big font-semibold'>SoulBuddy</span> - AI-Powered Spiritual Guide</h1>
         <>
             <section id="overview">
                 <KundliOverview />
             </section>
-            {/* <section id="birth_chart">
-                <KundliBirthChart />
-            </section> */}
             <section id="horoscope">
                 <KundliHoroscopes />
             </section>

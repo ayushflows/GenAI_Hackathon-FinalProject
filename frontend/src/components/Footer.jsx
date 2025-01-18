@@ -10,12 +10,10 @@ function Footer() {
         <div class="md:w-[90%] w-full px-4 text-white flex flex-col">
             <div class="w-full text-4xl sm:text-5xl md:text-7xl font-bold pt-10">
                 <h1 class="w-full md:w-[90%] pt-10">
-                <span className='capitalize text-slate-300'>User Analytics </span></h1>
+                <span className='capitalize text-slate-300'>SoulBuddy </span></h1>
             </div>
             <div class="flex mt-8 flex-col md:flex-row md:justify-between">
-                <p class="w-full md:w-2/4 text-gray-400">Platform for social media account Analytics, Engagement, and Insights.
-                <br /> <br />
-                Get in touch to find out more about digital experiences to effectively reach and engage customers and target audiences</p>
+            <p class="w-full md:w-2/4 text-gray-400">AI-powered platform offering personalized astrology and numerology insights, rituals, and spiritual guidance. <br /> <br /> Connect with us to explore a transformative digital experience tailored to your spiritual journey.</p>
                 <div class="w-44 pt-6 md:pt-0 ">
                 <button onClick={() => { navigate("/userinput")}} 
                     className="px-8 py-2 rounded-full relative bg-slate-700 text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600">
@@ -43,7 +41,7 @@ function Footer() {
                     </div>
                     <a href="/" class="hidden md:block cursor-pointer text-gray-400 hover:text-[#F97315] uppercase">Home</a>
                     <a href="/userinput" class="hidden md:block cursor-pointer text-gray-400 hover:text-[#F97315] uppercase">Try it out!</a>
-                    <a href='https://github.com/ayushflows/GenAI-Hackathon_LogiX' target='blank' class="hidden md:block cursor-pointer text-gray-400 hover:text-[#F97315] uppercase">Github</a>
+                    <a href='https://github.com/ayushflows/GenAI_Hackathon-FinalProject' target='blank' class="hidden md:block cursor-pointer text-gray-400 hover:text-[#F97315] uppercase">Github</a>
                     <a href="https://www.linkedin.com/in/ayushflows" class="hidden md:block cursor-pointer text-gray-400 hover:text-[#F97315] uppercase">Contact</a>
                     <div class="flex flex-row space-x-8 items-center justify-between">
                         <a href="https://www.linkedin.com/in/ayushflows/" target='blank'>

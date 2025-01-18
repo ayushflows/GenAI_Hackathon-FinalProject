@@ -3,6 +3,7 @@ import { Cover } from "./ui/cover";
 import bggridImg from "../assets/bgimg.svg";
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
+import { DashBoardImgScroll } from './dashboardimg-scroll';
 
 function HeroSection() {
   const [animateText, setAnimateText] = useState(false);
@@ -42,7 +43,7 @@ function HeroSection() {
       >
         Your <Cover> AI-Powered </Cover>
         <br />
-        <span className="inline-block mt-6 sm:mt-4 text-[2.5rem] md:text-[4rem]"> Analytics Dashboard </span>
+        <span className="inline-block mt-6 sm:mt-4 text-[2.5rem] md:text-[4rem]"> Spiritual Guide </span>
       </motion.h1>
 
       <motion.p
@@ -51,8 +52,9 @@ function HeroSection() {
         animate={{ opacity: animateText ? 1 : 0, y: animateText ? 0 : '15vh' }}
         transition={{ opacity: { duration: 0.7, delay: 0.9 }, y: { duration: 0.7, delay: 0.9 } }}
       >
-        Revolutionize your profile with AI powered Analytics Dashboard. Save time, boost efficiency, and focus on what matters most —{" "}
-        <span className="font-semibold text-white">More Engagements.</span>
+
+      Transform your spiritual path with AI-driven astrology and numerology insights, personalized rituals, and chatbot guidance. Focus on{" "} 
+      <span className="font-semibold text-white">Your Spiritual Growth.</span>
       </motion.p>
       <div className='w-full flex justify-center items-center mt-12 relative inter-regular'>
       <motion.button
@@ -71,6 +73,19 @@ function HeroSection() {
   Get Started <span className="ml-2">&rarr;</span>
 </motion.button>
 </div>
+      <motion.div
+      className='w-full'
+        initial={{ opacity: 0}}
+  animate={{
+    opacity: animateText ? 1 : 0,
+  }}
+  transition={{
+    duration: 0.4,
+    ease: 'easeInOut',
+    delay: 1.2,
+  }}>
+      <DashBoardImgScroll />
+</motion.div>
     </section>
   );
 }

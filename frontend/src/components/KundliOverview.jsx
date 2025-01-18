@@ -5,11 +5,11 @@ import womanImg from "../assets/woman.png";
 
 // Sample user data
 const userData = {
-  name: "John Doe",
+  name: "Ankur Kumar",
   sex: "Male",
-  placeOfBirth: "New York, USA",
+  placeOfBirth: "Lucknow, Uttar Pradesh",
   birthTime: "10:30 AM",
-  birthDate: "1990-01-01",
+  birthDate: "2003-12-08",
   tithi: "Purnima",
   hinduWeekDay: "Monday",
   paksha: "Shukla",

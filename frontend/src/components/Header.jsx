@@ -34,14 +34,14 @@ const Header = () => {
             Home
           </a>
           <a 
-            onClick={() => handleScroll("services")}
+            onClick={() => window.open('https://www.linkedin.com/in/ayushflows/', '_blank')}  
             className="text-white hover:text-gray-300 cursor-pointer" 
             style={{ fontSize: '1.125rem' }}
           >
             Contact
           </a>
           <a 
-            onClick={() => handleScroll("about")}
+            onClick={() => window.open('https://github.com/ayushflows/GenAI_Hackathon-FinalProject', '_blank')} 
             className="text-white hover:text-gray-300 cursor-pointer" 
             style={{ fontSize: '1.125rem' }}
           >
@@ -49,8 +49,7 @@ const Header = () => {
           </a>
           
             <button   
-            // onClick={() => navigate('/contact')} 
-            onClick={() => window.open('https://calendly.com/soubhav101101/intro-call', '_blank')} 
+            onClick={() => navigate('/userinput')} 
               className="bg-gray-200 text-black font-semibold flex items-center justify-center hover:bg-gray-300 outfit-medium"
               style={{
                 width: '130px', 
@@ -94,14 +93,14 @@ const Header = () => {
             <a href="/" className="text-white hover:text-gray-300" onClick={() => setIsOpen(false)}>
               Home
             </a>
-            <a onClick={() => {setIsOpen(false); handleScroll("services"); }} className="text-white hover:text-gray-300">
+            <a onClick={() => window.open('https://www.linkedin.com/in/ayushflows/', '_blank')}  className="text-white hover:text-gray-300">
               Contact
             </a>
-            <a onClick={() => { setIsOpen(false); handleScroll("about");}} className="text-white hover:text-gray-300">
+            <a onClick={() => window.open('https://github.com/ayushflows/GenAI_Hackathon-FinalProject', '_blank')}  className="text-white hover:text-gray-300">
               Github
             </a>
             <a 
-            onClick={() => navigate('/demo')} 
+            onClick={() => navigate('/userinput')} 
             className="text-white hover:text-gray-300 cursor-pointer" >
             Get Started
           </a>
