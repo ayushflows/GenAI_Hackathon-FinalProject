@@ -8,7 +8,7 @@ const langflowRouter = require("./routes/langflowRoute");
 const homeRouter = require("./routes/home");
 const chatRouter = require("./routes/chatRoute");
 
-const allowedOrigins = ['http://localhost:5173', 'https://teamlogix.web.app/'];
+const allowedOrigins = ['http://localhost:5173', 'https://teamlogix.web.app/', 'https://genai-hackathon-finalproject.onrender.com'];
 
 app.use(cors({
     origin: (origin, callback) => {

@@ -6,7 +6,6 @@ module.exports.langflow = async (req, res) => {
         try {
             const flaskApiUrl = 'https://genai-hackathon-finalproject.onrender.com/submit'; // Update with your Flask API URL
 
-            // Data to send in the POST request body
             const requestData = {
                 name: req.body.name,
                 gender: req.body.gender,
@@ -18,10 +17,10 @@ module.exports.langflow = async (req, res) => {
                 sec: req.body.sec,
                 place: req.body.place
             };
-
+            console.log(requestData)
             const response = await axios.post(flaskApiUrl, requestData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
             });
 
