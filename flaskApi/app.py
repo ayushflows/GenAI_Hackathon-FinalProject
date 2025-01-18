@@ -109,10 +109,10 @@ def get_astrology_report():
         driver.find_element(By.NAME, "submit").click()
 
         # Wait for the download link and click to download PDF
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href='vedic-chart-pdf.jsp']"))).click()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "a[href='vedic-chart-pdf.jsp']"))).click()
 
         # Wait for the PDF to be downloaded
-        time.sleep(10)  # Adjust this depending on network speed and file size
+        time.sleep(5)  # Adjust this depending on network speed and file size
 
         # Check the download directory to ensure the file is downloaded
         downloaded_files = os.listdir(download_dir)
