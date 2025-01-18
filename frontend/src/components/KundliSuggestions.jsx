@@ -1,5 +1,8 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
+import sleepIcon from "../assets/sleeping.png";
+import meditationIcon from "../assets/meditation.png";
+import workoutIcon from "../assets/yoga.png";
 
 // Sample suggestions data
 const suggestionsData = {
@@ -18,27 +21,28 @@ const suggestionsData = {
 };
 
 function KundliSuggestions() {
-  // Animated SVGs for each section
-  const animatedSvgs = {
+  // Enhanced icons for each section
+  const icons = {
     Meditation: (
-      <svg className="w-10 h-10 md:w-12 md:h-12 animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 20v-4m0-4V4m8 16h-2a6 6 0 01-6-6H4a6 6 0 016 6H4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <img
+        src={meditationIcon}
+        alt="Meditation Icon"
+        className="w-10 h-10 md:w-12 md:h-12 object-contain animate-pulse"
+      />
     ),
     Workout: (
-      <svg className="w-10 h-10 md:w-12 md:h-12 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M20 12H4m16 0l-6-6m6 6l-6 6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <img
+        src={workoutIcon}
+        alt="Meditation Icon"
+        className="w-10 h-10 md:w-12 md:h-12 object-contain animate-pulse"
+      />
     ),
     "Sleep Content Recommendations": (
-      <svg className="w-10 h-10 md:w-12 md:h-12 animate-pulse text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="currentColor">
-        {/* Bed */}
-        <rect x="8" y="32" width="48" height="16" rx="4" ry="4" className="fill-blue-400" />
-        <rect x="8" y="44" width="48" height="4" className="fill-blue-700" />
-        {/* Sleeping Man */}
-        <circle cx="20" cy="28" r="4" className="fill-blue-300 animate-slow-bounce" />
-        <path d="M24 28h12c2 0 2 2 2 2v4H22v-4c0-2 0-2 2-2z" className="fill-blue-500" />
-      </svg>
+      <img
+        src={sleepIcon}
+        alt="Sleep Icon"
+        className="w-10 h-10 md:w-12 md:h-12 object-contain animate-slow-bounce"
+      />
     )
   };
 
@@ -57,7 +61,7 @@ function KundliSuggestions() {
             className="p-6 bg-[#1e1f26] rounded-lg shadow-lg text-white border border-gray-700 transition-transform transform hover:scale-105"
           >
             <div className="flex items-center gap-4 mb-4">
-              {animatedSvgs[section]}
+              {icons[section]}
               <h3 className="text-lg md:text-xl font-semibold text-left underline decoration-orange-500">{section}</h3>
             </div>
             <ul className="space-y-2">
