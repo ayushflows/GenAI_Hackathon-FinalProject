@@ -24,6 +24,37 @@ The project aims to develop an AI-driven platform that generates personalized sp
 You can explore the live version of the project by clicking on the link below:
 [https://teamlogix.web.app/](https://teamlogix.web.app/)
 
+## **Key Features**
+1. **Input Details**: User provides Name, Date of Birth, Time, Gender, State, and City.
+2. **Kundali & Horoscope Generation**:
+   - Birth chart (Kundali) with 12 houses.
+   - Insights on career, relationships, personal growth, family, and social connections.
+   - Daily and monthly horoscopes.
+3. **AI Recommendations**:
+   - Personalized gemstone suggestions.
+   - Ritual (Pooja) recommendations with detailed explanations.
+   - Do’s and Don’ts based on astrological insights.
+4. **Spiritual Content Delivery**:
+   - Meditation and workout suggestions tailored to horoscope insights.
+   - Customized sleep content for user needs.
+5. **Chatbot Interaction**:
+   - Interactive chatbot providing spiritual advice.
+   - Explains recommendations and predictions in natural language.
+
+## **How It Works**
+1. **Data Collection**:
+   - Users input their birth details into the platform.
+2. **Automation with Selenium**:
+   - Data is fetched from trusted sources such as the Astrosage website using Selenium.
+3. **Processing with Langflow**:
+   - Collected data is processed through a Langflow NLP pipeline to extract meaningful insights in JSON format.
+4. **Insights and Output**:
+   - The platform generates personalized predictions and recommendations.
+   - Results are presented in a user-friendly format, with options for detailed chatbot interaction.
+5. **Interactive Chatbot**:
+   - Provides explanations for the generated horoscope, recommendations, and spiritual advice.
+
+
 
 ## **Technologies Used**
 | Technology                  | Purpose                              |
