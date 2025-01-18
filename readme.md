@@ -9,10 +9,12 @@ Take a look at it: [https://teamlogix.web.app/](https://teamlogix.web.app/)
 1. [Project Overview](#objective)
 2. [Live Link](#live-link)
 3. [Technologies Used](#technologies-used)
-4. [Team Members](#team-members)
-5. [How to Run the Project](#how-to-run-the-project)
-6. [Repository Structure](#repository-structure)
-7. [Contact](#contact)
+4. [Key Features](#key-features)
+5. [How It Works](#how-it-works)
+6. [Team Members](#team-members)
+7. [How to Run the Project](#how-to-run-the-project)
+8. [Repository Structure](#repository-structure)
+9. [Contact](#contact)
 
 
 
