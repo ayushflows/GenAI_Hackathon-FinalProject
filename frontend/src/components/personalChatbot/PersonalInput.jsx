@@ -17,7 +17,7 @@ export default function PersonalInput({ onSend }) {
     <div className="input">
       <form onSubmit={handleSend}>
         <input
-          className="dosis-prsnlchatbot bg-[#071215c3] text-white"
+          className="dosis-prsnlchatbot bg-[#505050] text-white"
           type="text"
           onChange={handleInputChange}
           value={text}

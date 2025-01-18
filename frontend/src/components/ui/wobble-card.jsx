@@ -19,7 +19,7 @@ export const WobbleCard = ({
     setMousePosition({ x, y });
   };
   return (
-    (<motion.section
+    (<motion.div
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
@@ -54,6 +54,6 @@ export const WobbleCard = ({
           {children}
         </motion.div>
       </div>
-    </motion.section>)
+    </motion.div>)
   );
 };
