@@ -29,7 +29,7 @@ will be displaying description in few time (after getting the problem statement)
 
    ```bash
    git clone https://github.com/ayushflows/GenAI_Hackathon-FinalProject
-   cd GenAI-Hackathon/FrontEnd
+   cd GenAI_Hackathon-FinalProject/frontend
    ```
 
 2. Install dependencies:
