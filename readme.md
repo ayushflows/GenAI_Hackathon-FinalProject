@@ -27,7 +27,6 @@ You can explore the live version of the project by clicking on the link below:
 ## **Key Features**
 1. **Input Details**: User provides Name, Date of Birth, Time, Gender, State, and City.
 2. **Kundali & Horoscope Generation**:
-   - Birth chart (Kundali) with 12 houses.
    - Insights on career, relationships, personal growth, family, and social connections.
    - Daily and monthly horoscopes.
 3. **AI Recommendations**:
