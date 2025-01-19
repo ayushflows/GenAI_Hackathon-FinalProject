@@ -4,7 +4,6 @@ const API_ENDPOINT = import.meta.env.VITE_APP_SERVER_LINK;
 
 export const submitUserInput = async (formData) => {
   try {
-    console.log("got the time", formData)
     const [year, month, day] = formData.dob.split('-');
     const [hrs, mins] = formData.time.split(':');
     const sec = '00';
@@ -25,10 +24,8 @@ export const submitUserInput = async (formData) => {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
-    console.log("response received", response.data.data[0].text);
     return response.data.data[0].text;
   } catch (error) {
-    console.error('Error submitting the form:', error);
     throw error;
   }
 };
