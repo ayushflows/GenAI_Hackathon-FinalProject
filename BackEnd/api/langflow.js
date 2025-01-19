@@ -103,7 +103,7 @@ async function main(inputValue, inputType = 'chat', outputType = 'chat', stream 
             const flowOutputs = response.outputs[0];
             const firstComponentOutputs = flowOutputs.outputs[0];
             const output = firstComponentOutputs.outputs.message;
-            return output.message.text ; 
+            return output.message.text; 
         }
     } catch (error) {
         console.error('Main Error', error.message);

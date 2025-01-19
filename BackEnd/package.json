@@ -17,6 +17,9 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pdf-parse": "^1.1.1",
-    "pdfjs-dist": "^4.8.69"
+    "pdfjs-dist": "^4.8.69",
+    "puppeteer": "^24.1.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }
