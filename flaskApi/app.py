@@ -65,9 +65,6 @@ def download_from_s3(bucket_name, object_name, download_path):
         print(f"Failed to download from S3: {e}")
         raise e
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/submit', methods=['GET', 'POST'])
 def get_astrology_report():
