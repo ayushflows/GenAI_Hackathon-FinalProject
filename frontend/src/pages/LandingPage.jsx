@@ -11,6 +11,7 @@ function LandingPage() {
       <Header />
       <HeroSection />
       </div>
+      
       {/* <PersonalChatBot /> */}
       <Footer />
     </>
