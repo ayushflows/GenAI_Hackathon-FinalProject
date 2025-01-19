@@ -3,4 +3,5 @@ selenium==4.10.0
 boto3==1.26.8
 pdfplumber==0.7.5
 webdriver-manager==4.0.2
+werkzeug==2.2.2
 gunicorn==20.1.0
