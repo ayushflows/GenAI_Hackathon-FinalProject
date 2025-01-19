@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaBriefcase, FaHeart, FaUserGraduate, FaUsers, FaHandshake } from "react-icons/fa"; // Import icons
+import { FaBriefcase, FaHeart, FaUserGraduate, FaUsers, FaHandshake, FaHeartbeat } from "react-icons/fa"; // Import icons
+import manImg from "../assets/man.png";
 import womanImg from "../assets/woman.png";
 
 const cardsBg = [
@@ -30,28 +31,25 @@ const cardsBg = [
   },
 ];
 
-function KundliOverview({analyzedData}) {
-
+function KundliOverview({ analyzedData }) {
   const userData = {
-    name: analyzedData.name ?? "Ankur Kumar",
-    sex: analyzedData.gender ?? "Male",
-    placeOfBirth: analyzedData.location ?? "Lucknow, Uttar Pradesh",
-    birthTime: analyzedData.time ?? "10:30 AM",
-    birthDate: analyzedData.dob ?? "2003-12-08",
-    tithi: "Purnima",
-    hinduWeekDay: "Monday",
-    paksha: "Shukla",
-    nakshatra: "Ashwini",
-    rasi: "Mesh (Aries)",
-    career: "John has shown significant achievements in the field of technology, consistently excelling and demonstrating leadership qualities in various roles.",
-    relationships: "John values his relationships and maintains strong bonds with family and friends, known for his empathy and understanding.",
-    personalGrowth: "John is committed to continuous learning and personal development, regularly setting goals to enhance his skills and mindset.",
-    family: "Family is an integral part of John's life, and he dedicates time to nurture and support his loved ones.",
-    socialConnections: "John is highly sociable, actively engaging with his community and participating in events that promote unity and collaboration."
+    name: analyzedData.Overview.Name,
+    sex: analyzedData.Overview.Sex,
+    placeOfBirth: `${analyzedData.Overview["Place of Birth"].City}, ${analyzedData.Overview["Place of Birth"].Country}`,
+    birthTime: analyzedData.Overview["Birth Time"],
+    birthDate: analyzedData.Overview["Birth Date"],
+    tithi: analyzedData.Overview.Tithi,
+    hinduWeekDay: analyzedData.Overview["Hindu Weekday"],
+    paksha: analyzedData.Overview.Paksha,
+    nakshatra: analyzedData.Overview.Nakshatra,
+    rasi: analyzedData.Overview.Rasi,
+    career: analyzedData["Life Aspects Summary"].Career,
+    relationships: analyzedData["Life Aspects Summary"].Relationships,
+    personalGrowth: analyzedData["Life Aspects Summary"]["Personal Growth"],
+    family: analyzedData["Life Aspects Summary"].Family,
+    socialConnections: analyzedData["Life Aspects Summary"]["Social Connections"]
   };
 
-  console.log(analyzedData);
-  
   const aspects = [
     { title: "Career", content: userData.career, icon: <FaBriefcase className="text-white" /> },
     { title: "Relationships", content: userData.relationships, icon: <FaHeart className="text-white" /> },
@@ -69,32 +67,32 @@ function KundliOverview({analyzedData}) {
         </h2>
       </div>
       <div className='flex flex-col md:flex-row justify-between items-center'>
-      <div className='w-full h-[90px] md:h-auto md:w-[18%]'>
-      <img
-          src={userData.sex === ("male") ? "https://avatars.githubusercontent.com/u/124663413?s=400&u=f9a2f3c9b2365a847dbd087202a63842c70ed346&v=4" : womanImg}
-          alt="Gender Icon"
-          className="md:left-[-50px] h-full md:h-auto object-contain rounded-full overflow-hidden"
-        />
-      </div>
-      <div className="mt-4 p-6 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg text-white border border-gray-600 md:w-[80%]">
-        <h3 className="text-xl font-semibold mb-4 text-left underline decoration-orange-500">User Details</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-          <div>
-            <p className="mb-2"><strong>Name:</strong> <span className="ml-2">{userData.name}</span></p>
-            <p className="mb-2"><strong>Sex:</strong> <span className="ml-2">{userData.sex}</span></p>
-            <p className="mb-2"><strong>Place of Birth:</strong> <span className="ml-2">{userData.placeOfBirth}</span></p>
-            <p className="mb-2"><strong>Birth Time:</strong> <span className="ml-2">{userData.birthTime}</span></p>
-            <p className="mb-2"><strong>Birth Date:</strong> <span className="ml-2">{userData.birthDate}</span></p>
-          </div>
-          <div>
-            <p className="mb-2"><strong>Rasi:</strong> <span className="ml-2">{userData.rasi}</span></p>
-            <p className="mb-2"><strong>Tithi:</strong> <span className="ml-2">{userData.tithi}</span></p>
-            <p className="mb-2"><strong>Hindu Week Day:</strong> <span className="ml-2">{userData.hinduWeekDay}</span></p>
-            <p className="mb-2"><strong>Paksha:</strong> <span className="ml-2">{userData.paksha}</span></p>
-            <p className="mb-2"><strong>Nakshatra:</strong> <span className="ml-2">{userData.nakshatra}</span></p>
+        <div className='w-full h-[90px] md:h-auto md:w-[18%]'>
+          <img
+            src={userData.sex === "Male" ? manImg : womanImg}
+            alt="Gender Icon"
+            className="md:left-[-50px] h-full md:h-auto object-contain rounded-full overflow-hidden"
+          />
+        </div>
+        <div className="mt-4 p-6 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg text-white border border-gray-600 md:w-[80%]">
+          <h3 className="text-xl font-semibold mb-4 text-left underline decoration-orange-500">User Details</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
+            <div>
+              <p className="mb-2"><strong>Name:</strong> <span className="ml-2">{userData.name}</span></p>
+              <p className="mb-2"><strong>Sex:</strong> <span className="ml-2">{userData.sex}</span></p>
+              <p className="mb-2"><strong>Place of Birth:</strong> <span className="ml-2">{userData.placeOfBirth}</span></p>
+              <p className="mb-2"><strong>Birth Time:</strong> <span className="ml-2">{userData.birthTime}</span></p>
+              <p className="mb-2"><strong>Birth Date:</strong> <span className="ml-2">{userData.birthDate}</span></p>
+            </div>
+            <div>
+              <p className="mb-2"><strong>Rasi:</strong> <span className="ml-2">{userData.rasi}</span></p>
+              <p className="mb-2"><strong>Tithi:</strong> <span className="ml-2">{userData.tithi}</span></p>
+              <p className="mb-2"><strong>Hindu Week Day:</strong> <span className="ml-2">{userData.hinduWeekDay}</span></p>
+              <p className="mb-2"><strong>Paksha:</strong> <span className="ml-2">{userData.paksha}</span></p>
+              <p className="mb-2"><strong>Nakshatra:</strong> <span className="ml-2">{userData.nakshatra}</span></p>
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">

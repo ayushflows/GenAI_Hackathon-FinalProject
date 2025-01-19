@@ -1,36 +1,22 @@
 import React from 'react'
 
 // Sample horoscope data
-const horoscopeData = {
-  daily: {
-    paragraph: "Today is a day filled with opportunities and challenges. You may find yourself in situations that require quick thinking and adaptability. Stay positive and trust your instincts to navigate through the day successfully.",
-    inFavour: [
-      "Good health: You will feel energetic and vibrant throughout the day.",
-      "Positive energy: Your positive attitude will attract good vibes.",
-      "Support from friends: Friends will be there to help you in times of need."
-    ],
-    notInFavour: [
-      "Financial instability: Be cautious with your spending today.",
-      "Workplace stress: You might face some challenges at work.",
-      "Miscommunication: Clear communication is essential to avoid misunderstandings."
-    ]
-  },
-  monthly: {
-    paragraph: "This month brings a mix of highs and lows. While you will experience growth in your personal and professional life, be prepared for some unexpected hurdles. Stay focused and maintain a balanced approach to achieve your goals.",
-    inFavour: [
-      "Career advancement: Opportunities for growth in your career will arise.",
-      "New learning opportunities: This is a great time to acquire new skills.",
-      "Strong family bonds: Your relationship with family members will strengthen."
-    ],
-    notInFavour: [
-      "Health issues: Take care of your health and avoid stress.",
-      "Financial constraints: Budgeting will be crucial to manage expenses.",
-      "Relationship conflicts: Be patient and understanding to avoid conflicts."
-    ]
-  }
-};
+function KundliHoroscopes({analyzedData}) {
 
-function KundliHoroscopes() {
+  const horoscopeData = {
+    daily: {
+      paragraph: analyzedData["Horoscope"]["Daily Horoscope"].Prediction,
+      inFavour: analyzedData["Horoscope"]["Daily Horoscope"]["Favorable Aspects"],
+      notInFavour: analyzedData["Horoscope"]["Daily Horoscope"]["Unfavorable Aspects"]
+    },
+    monthly: {
+      paragraph: analyzedData["Horoscope"]["Monthly Horoscope"].Prediction,
+      inFavour: analyzedData["Horoscope"]["Monthly Horoscope"]["Positive Trends"],
+      notInFavour: analyzedData["Horoscope"]["Monthly Horoscope"].Challenges
+    }
+  };
+
+  
   return (
     <div id="horoscope" className="mx-2 lg:mx-6 xl:mx-12 mb-[40px] md:mb-[90px] inter-regular">
       <div className="flex items-center gap-2">

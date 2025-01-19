@@ -4,24 +4,14 @@ import sleepIcon from "../assets/sleeping.png";
 import meditationIcon from "../assets/meditation.png";
 import workoutIcon from "../assets/yoga.png";
 
-// Sample suggestions data
-const suggestionsData = {
-  Meditation: [
-    "Practice mindfulness meditation to reduce stress and enhance focus.",
-    "Chanting 'Om Namah Shivaya' daily helps align energies."
-  ],
-  Workout: [
-    "Yoga sessions focusing on breathing techniques for mental clarity.",
-    "Cardio exercises like running or cycling to boost vitality."
-  ],
-  "Sleep Content Recommendations": [
-    "Listening to calming 'Shanti Mantras' at night promotes deep relaxation.",
-    "Reading spiritual texts before bed enhances mental clarity."
-  ]
-};
 
-function KundliSuggestions() {
-  // Enhanced icons for each section
+function KundliSuggestions({analyzedData}) {
+  const suggestionsData = {
+    Meditation: analyzedData["Personalized Recommendations"]["Meditation Suggestions"],
+    Workout: analyzedData["Personalized Recommendations"]["Workout Suggestions"],
+    "Sleep Content Recommendations": analyzedData["Personalized Recommendations"]["Sleep Content Recommendations"]
+  };
+  
   const icons = {
     Meditation: (
       <img

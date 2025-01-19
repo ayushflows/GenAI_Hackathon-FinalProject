@@ -47,10 +47,10 @@ function UserInputForm() {
     try {
       const response = await submitUserInput(formData);
       console.log('Form submitted successfully:', response);
-      navigate('/result', { state: { formData } });
+      navigate('/result', { state: { response } });
     } catch (error) {
       console.error('Error submitting the form:', error);
-      navigate('/result', { state: { formData } });
+      navigate('/result', { state: {  response } });
     } finally {
       setLoading(false);
     }

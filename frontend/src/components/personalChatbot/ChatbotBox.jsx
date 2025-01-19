@@ -32,7 +32,7 @@ function ChatbotBox({setChatbotOpen}) {
       <PersonalUserMessage key={messages.length + 1} text={text} />,
       <PersonalChatbotMessage
         key={messages.length + 2}
-        fetchMessage={async () => await PersonalChatbotAPI.GetTextFromQuestion(text)} updateScroll={updateScroll}
+        fetchMessage={async () => await PersonalChatbotAPI.GetChatbotResponse("tell me about my personal growth")} updateScroll={updateScroll}
       />
     );
     setMessages(newMessages);

@@ -1,25 +1,14 @@
 import React from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Import icons
 
-// Sample insights data
-const insightsData = {
-  dos: [
-    "Maintain a balanced diet and exercise regularly.",
-    "Practice mindfulness and meditation to reduce stress.",
-    "Spend quality time with family and friends.",
-    "Set realistic goals and work towards achieving them.",
-    "Stay positive and keep a growth mindset."
-  ],
-  donts: [
-    "Avoid negative thinking and self-doubt.",
-    "Don't overwork yourself; take breaks when needed.",
-    "Avoid unhealthy eating habits and sedentary lifestyle.",
-    "Don't neglect your mental health; seek help if needed.",
-    "Avoid procrastination and stay focused on your tasks."
-  ]
-};
+function KundliInsights({analyzedData}) {
 
-function KundliInsights() {
+  const insightsData = {
+    dos: analyzedData["Do's and Don'ts"]["Do's"],
+    donts: analyzedData["Do's and Don'ts"]["Don'ts"]
+  };
+
+  
   return (
     <div id="insights" className="mx-2 lg:mx-6 xl:mx-12 mb-[40px] md:mb-[90px] inter-regular">
       <div className="flex items-center gap-2">

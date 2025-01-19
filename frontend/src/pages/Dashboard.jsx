@@ -15,9 +15,9 @@ function Dashboard() {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeButton, setActiveButton] = useState('overview');
-  const [analyzedData, setAnalyzedData] = useState(location.state?.formData || null);
+  const [analyzedData, setAnalyzedData] = useState(location.state?.response || null);
 
-
+  console.log(analyzedData)
   const handleScroll = () => {
     const sections = document.querySelectorAll('section');
     const scrollContainer = document.getElementById('analytics-overview');
@@ -69,29 +69,29 @@ function Dashboard() {
         </div>
         <div id='analytics-overview' className='lg:w-[calc(100%-230px)] lg:h-full w-full h-[calc(100vh-60px)] bg-[#2E3139] overflow-y-auto custom-scrollbar'>
           <h1 className='text-2xl font-normal figtree-regular w-full py-3 text-center text-[#e6e6e6] mb-2'> <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#8E9EAB] to-[#EEF2F3] outfit-big font-semibold'>SoulBuddy</span> - AI-Powered Spiritual Guide</h1>
-        <>
+        {analyzedData !== null ? <>
             <section id="overview">
-                <KundliOverview analyzedData={analyzedData}/>
+                <KundliOverview analyzedData={analyzedData} />
             </section>
             <section id="horoscope">
-                <KundliHoroscopes />
+                <KundliHoroscopes analyzedData={analyzedData}  />
             </section>
             <section id="pujas">
-                <KundliPujas />
+                <KundliPujas analyzedData={analyzedData}  />
             </section>
             <section id="gems">
-                <KundliGems />
+                <KundliGems analyzedData={analyzedData}  />
             </section>
             <section id="predictions">
-                <KundliPredictions />
+                <KundliPredictions analyzedData={analyzedData} />
             </section>
             <section id="suggestions">
-                <KundliSuggestions />
+                <KundliSuggestions analyzedData={analyzedData} />
             </section>
             <section id="insights">
-                <KundliInsights />
+                <KundliInsights analyzedData={analyzedData} />
             </section>
-        </>
+        </> : <p>Nothing to show</p> }
         </div>
       </div>
       <PersonalChatBot />

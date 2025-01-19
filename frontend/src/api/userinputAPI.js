@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_ENDPOINT = 'http://localhost:8080/genai/langflow';
+const API_ENDPOINT = import.meta.env.VITE_APP_SERVER_LINK;
 
 export const submitUserInput = async (formData) => {
   try {
@@ -25,8 +25,8 @@ export const submitUserInput = async (formData) => {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
-    console.log("response received", response);
-    return response.data;
+    console.log("response received", response.data.data[0].text);
+    return response.data.data[0].text;
   } catch (error) {
     console.error('Error submitting the form:', error);
     throw error;

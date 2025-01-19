@@ -1,32 +1,6 @@
 import React from "react";
 
 // Sample pujas data
-const pujasData = [
-  {
-    heading: "Lakshmi Puja",
-    for: "For your career",
-    significance: "Lakshmi Puja is performed to invoke the blessings of Goddess Lakshmi, the deity of wealth and prosperity. This puja helps in attracting financial stability and success in your professional life.",
-    whyBest: "This puja is best for you as it helps in removing obstacles in your career path and brings prosperity."
-  },
-  {
-    heading: "Hanuman Puja",
-    for: "For your health",
-    significance: "Hanuman Puja is dedicated to Lord Hanuman, known for his strength and vitality. Performing this puja helps in overcoming health issues and gaining physical and mental strength.",
-    whyBest: "This puja is best for you as it enhances your health and provides protection from ailments."
-  },
-  {
-    heading: "Saraswati Puja",
-    for: "For your education",
-    significance: "Saraswati Puja is performed to seek the blessings of Goddess Saraswati, the deity of knowledge and wisdom. This puja aids in improving concentration and academic performance.",
-    whyBest: "This puja is best for you as it helps in achieving academic success and intellectual growth."
-  },
-  {
-    heading: "Ganesh Puja",
-    for: "For removing obstacles",
-    significance: "Ganesh Puja is dedicated to Lord Ganesha, the remover of obstacles. Performing this puja helps in overcoming challenges and ensuring success in all endeavors.",
-    whyBest: "This puja is best for you as it removes obstacles and paves the way for success in your personal and professional life."
-  }
-];
 
 const cardsBg = [
   {
@@ -56,7 +30,16 @@ const cardsBg = [
   },
 ];
 
-function KundliPujas() {
+function KundliPujas({analyzedData}) {
+
+  const pujasData = analyzedData["Pooja for Problems"].map((pooja) => ({
+    heading: pooja.Heading,
+    for: pooja.For,
+    significance: pooja.Significance,
+    whyBest: pooja["Why Best"]
+  }));
+
+  
   return (
     <div id="horoscope" className="mx-2 lg:mx-6 xl:mx-12 mb-[40px] md:mb-[90px] inter-regular">
       <div className="flex items-center gap-2">

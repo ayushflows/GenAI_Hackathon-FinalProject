@@ -1,76 +1,34 @@
 import React from 'react';
 import { FaBriefcase, FaHome, FaHeartbeat, FaUsers, FaDollarSign } from 'react-icons/fa'; // Import icons
 
-// Enhanced predictions data
-const predictionsData = [
-  {
-    heading: "Career",
-    icon: <FaBriefcase className="text-white" />,
-    description: "This year promises significant growth in your professional life. Be ready to seize opportunities and embrace challenges.",
-    parameters: {
-      focusAreas: [
-        "Networking and building strong professional connections",
-        "Upskilling to stay relevant in your field",
-        "Taking calculated risks for better opportunities",
-      ],
-      advice: "Stay proactive and maintain a growth mindset."
-    }
-  },
-  {
-    heading: "Family",
-    icon: <FaHome className="text-white" />,
-    description: "A year filled with peace and joy in family matters. Strengthening relationships will bring immense satisfaction.",
-    parameters: {
-      focusAreas: [
-        "Spending quality time with loved ones",
-        "Organizing family activities or trips",
-        "Ensuring open and honest communication",
-      ],
-      advice: "Appreciate and nurture familial bonds."
-    }
-  },
-  {
-    heading: "Health",
-    icon: <FaHeartbeat className="text-white" />,
-    description: "Maintain a balanced lifestyle for overall well-being. Pay attention to your physical and mental health.",
-    parameters: {
-      focusAreas: [
-        "Following a balanced diet and hydration routine",
-        "Incorporating regular physical activities like yoga or gym",
-        "Managing stress through mindfulness and hobbies",
-      ],
-      advice: "Stay consistent with healthy habits."
-    }
-  },
-  {
-    heading: "Relationships",
-    icon: <FaUsers className="text-white" />,
-    description: "A positive year for relationships as bonds grow deeper. Focus on understanding and supporting each other.",
-    parameters: {
-      focusAreas: [
-        "Actively listening and communicating effectively",
-        "Showing appreciation and empathy",
-        "Resolving conflicts constructively",
-      ],
-      advice: "Be present and express your feelings genuinely."
-    }
-  },
-  {
-    heading: "Finance",
-    icon: <FaDollarSign className="text-white" />,
-    description: "Financial stability is achievable with proper planning and discipline. Be mindful of your expenditures.",
-    parameters: {
-      focusAreas: [
-        "Creating and following a budget",
-        "Exploring investment options for long-term gains",
-        "Avoiding impulsive purchases",
-      ],
-      advice: "Focus on saving and making informed financial decisions."
-    }
-  }
-];
 
-function KundliPredictions() {
+function KundliPredictions({analyzedData}) {
+
+  const predictionsData = Object.keys(analyzedData.Prediction).map((key) => {
+    const section = analyzedData.Prediction[key];
+    return {
+      heading: section.Heading,
+      icon:
+        key === "Career"
+          ? <FaBriefcase className="text-white" />
+          : key === "Family"
+          ? <FaHome className="text-white" />
+          : key === "Health"
+          ? <FaHeartbeat className="text-white" />
+          : key === "Relationships"
+          ? <FaUsers className="text-white" />
+          : key === "Finance"
+          ? <FaDollarSign className="text-white" />
+          : null,
+      description: section.Description,
+      parameters: {
+        focusAreas: section.Parameters["Focus Areas"],
+        advice: section.Parameters.Advice,
+      },
+    };
+  });
+
+  
   return (
     <div id="predictions" className="mx-2 lg:mx-6 xl:mx-12 mb-[40px] md:mb-[90px] inter-regular">
       <div className="flex items-center gap-2">

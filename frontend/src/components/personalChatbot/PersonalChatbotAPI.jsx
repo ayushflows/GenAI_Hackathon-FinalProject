@@ -5,8 +5,8 @@ const PersonalChatbotAPI = {
       return new Promise(function(resolve, reject) {
         setTimeout(function() {
           if (message === "hi") resolve("Hi! Welcome to the Soulbuddy Chatbot, How can I assist you today?");
-          else resolve("echo : " + message);
-        }, 2000);
+          else resolve("Ayush, your personal growth is driven by resilience, adaptability, and a thirst for knowledge. By maintaining balance in health, relationships, and finances, you can achieve holistic success. Focus on continuous learning, open communication, and mindfulness to navigate challenges and unlock opportunities. With discipline and clarity, your journey will be marked by meaningful connections, professional achievements, and overall well-being.");
+        }, 4000);
       });
     },
 
