@@ -6,15 +6,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (sectionId) => {
-    navigate("/");
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
   return (
     <header className="bg-gradient-to-b from-transparent to-transparent text-white px-6 py-4 relative z-20 ">
       <div className="max-w-[90%] mx-auto py-3 px-6 flex items-center justify-between glassy-navbar rounded-xl">

@@ -2,24 +2,6 @@ import React from 'react';
 import { FaBriefcase, FaHeart, FaUserGraduate, FaUsers, FaHandshake } from "react-icons/fa"; // Import icons
 import womanImg from "../assets/woman.png";
 
-const userData = {
-  name: "Ankur Kumar",
-  sex: "Male",
-  placeOfBirth: "Lucknow, Uttar Pradesh",
-  birthTime: "10:30 AM",
-  birthDate: "2003-12-08",
-  tithi: "Purnima",
-  hinduWeekDay: "Monday",
-  paksha: "Shukla",
-  nakshatra: "Ashwini",
-  rasi: "Mesh (Aries)",
-  career: "John has shown significant achievements in the field of technology, consistently excelling and demonstrating leadership qualities in various roles.",
-  relationships: "John values his relationships and maintains strong bonds with family and friends, known for his empathy and understanding.",
-  personalGrowth: "John is committed to continuous learning and personal development, regularly setting goals to enhance his skills and mindset.",
-  family: "Family is an integral part of John's life, and he dedicates time to nurture and support his loved ones.",
-  socialConnections: "John is highly sociable, actively engaging with his community and participating in events that promote unity and collaboration."
-};
-
 const cardsBg = [
   {
     id: 1,
@@ -50,6 +32,25 @@ const cardsBg = [
 
 function KundliOverview({analyzedData}) {
 
+  const userData = {
+    name: analyzedData.name ?? "Ankur Kumar",
+    sex: analyzedData.gender ?? "Male",
+    placeOfBirth: analyzedData.location ?? "Lucknow, Uttar Pradesh",
+    birthTime: analyzedData.time ?? "10:30 AM",
+    birthDate: analyzedData.dob ?? "2003-12-08",
+    tithi: "Purnima",
+    hinduWeekDay: "Monday",
+    paksha: "Shukla",
+    nakshatra: "Ashwini",
+    rasi: "Mesh (Aries)",
+    career: "John has shown significant achievements in the field of technology, consistently excelling and demonstrating leadership qualities in various roles.",
+    relationships: "John values his relationships and maintains strong bonds with family and friends, known for his empathy and understanding.",
+    personalGrowth: "John is committed to continuous learning and personal development, regularly setting goals to enhance his skills and mindset.",
+    family: "Family is an integral part of John's life, and he dedicates time to nurture and support his loved ones.",
+    socialConnections: "John is highly sociable, actively engaging with his community and participating in events that promote unity and collaboration."
+  };
+
+  console.log(analyzedData);
   
   const aspects = [
     { title: "Career", content: userData.career, icon: <FaBriefcase className="text-white" /> },
@@ -70,7 +71,7 @@ function KundliOverview({analyzedData}) {
       <div className='flex flex-col md:flex-row justify-between items-center'>
       <div className='w-full h-[90px] md:h-auto md:w-[18%]'>
       <img
-          src={userData.sex === "Male" ? "https://avatars.githubusercontent.com/u/124663413?s=400&u=f9a2f3c9b2365a847dbd087202a63842c70ed346&v=4" : womanImg}
+          src={userData.sex === ("male") ? "https://avatars.githubusercontent.com/u/124663413?s=400&u=f9a2f3c9b2365a847dbd087202a63842c70ed346&v=4" : womanImg}
           alt="Gender Icon"
           className="md:left-[-50px] h-full md:h-auto object-contain rounded-full overflow-hidden"
         />

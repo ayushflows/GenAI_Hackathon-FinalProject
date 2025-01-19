@@ -5,7 +5,7 @@ export default function ChatbotHeader({setChatbotOpen}) {
   return <div className="pb-3 pt-2 pl-4 text-center text-[#fff] max-h-[50px] text-[17px] shadow-sm bg-zinc-600 poppins-semibold flex items-center">
           <div className="flex items-center w-[80%]">
           <img className="w-[30px] sm:w-[35px] invert contrast-200" src={logoImg} alt="logo"/>
-          <h1 className="ml-3 text-[16px] sm:text-lg">&nbsp;Insight Engine</h1>
+          <h1 className="ml-3 text-[16px] sm:text-lg">&nbsp;SoulBuddy Insight Engine</h1>
           </div>
           <div className="w-[20%] h-full flex justify-end cursor-pointer pr-3" onClick={()=>setChatbotOpen(false)}>
           <svg xmlns="http://www.w3.org/2000/svg" height="20" width="15" viewBox="0 0 384 512">

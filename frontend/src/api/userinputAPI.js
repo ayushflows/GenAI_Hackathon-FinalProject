@@ -1,33 +1,31 @@
 import axios from 'axios';
 
-const API_ENDPOINT = 'https://your-api-endpoint.com';
+const API_ENDPOINT = 'http://localhost:8080/genai/langflow';
 
 export const submitUserInput = async (formData) => {
   try {
-    // Parse the date and time for separate fields
+    console.log("got the time", formData)
     const [year, month, day] = formData.dob.split('-');
     const [hrs, mins] = formData.time.split(':');
-    const sec = '00'; // Assuming seconds are not included in the input
+    const sec = '00';
 
-    // Create the payload in the required format
     const payload = {
-      input_name: formData.name,
-      input_gender: formData.gender,
-      input_day: day,
-      input_month: month,
-      input_year: year,
-      input_hrs: hrs,
-      input_mins: mins,
-      input_sec: sec,
-      input_place: formData.location,
-      input_ayanamsa: 'N.C.Lahiri',
-      input_charting: 'North Indian',
+      name: formData.name,
+      gender: formData.gender,
+      day: day,
+      month: month,
+      year: year,
+      hrs: hrs,
+      mins: mins,
+      sec: sec,
+      place: formData.location
     };
-    
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-
-    // Send the data to the API
-    const response = await axios.post(API_ENDPOINT, payload);
+    const response = await axios.post(API_ENDPOINT, payload, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+    console.log("response received", response);
     return response.data;
   } catch (error) {
     console.error('Error submitting the form:', error);
