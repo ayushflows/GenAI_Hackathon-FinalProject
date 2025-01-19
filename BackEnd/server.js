@@ -8,20 +8,21 @@ const langflowRouter = require("./routes/langflowRoute");
 const homeRouter = require("./routes/home");
 const chatRouter = require("./routes/chatRoute");
 
-const allowedOrigins = ['http://localhost:5173', 'https://teamlogix.web.app/', 'https://teamlogix.web.app/userinput', 'https://teamlogix.web.app/result', 'https://genai-hackathon-finalproject.onrender.com'];
-
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'https://teamlogix.web.app',
+    ];
+    if (!origin || !allowedOrigins.includes(origin)) {
+      callback(new Error('Not allowed by CORS'));
+    } else {
+      callback(null, true);
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
