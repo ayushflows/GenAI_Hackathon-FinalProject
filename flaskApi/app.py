@@ -2,6 +2,7 @@ import time
 import os
 import tempfile
 import pdfplumber
+import boto3
 from flask import Flask, jsonify, render_template, request
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -14,6 +15,20 @@ app = Flask(__name__)
 
 # Set up the download directory
 download_dir = os.getcwd()  # Correctly get the current working directory
+
+# AWS S3 Setup
+AWS_ACCESS_KEY_ID = 'AKIA6GSNG3KGJPMDGAOR'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_REGION = 'eu-north-1'
+AWS_BUCKET_NAME = 'carnaama-glb-models'
+
+# Initialize S3 client
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    region_name=AWS_REGION
+)
 
 def get_user_inputs():
     # Collect inputs from the user
@@ -32,15 +47,27 @@ def get_user_inputs():
     }
     return inputs
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+def upload_to_s3(file_path, bucket_name, object_name):
+    """Upload file to an S3 bucket."""
+    try:
+        s3_client.upload_file(file_path, bucket_name, object_name)
+        print(f"File uploaded to S3: {object_name}")
+    except Exception as e:
+        print(f"Failed to upload to S3: {e}")
+        raise e
+
+def download_from_s3(bucket_name, object_name, download_path):
+    """Download file from an S3 bucket."""
+    try:
+        s3_client.download_file(bucket_name, object_name, download_path)
+        print(f"File downloaded from S3: {object_name}")
+    except Exception as e:
+        print(f"Failed to download from S3: {e}")
+        raise e
+
 
 @app.route('/submit', methods=['GET', 'POST'])
 def get_astrology_report():
-    # Correct the download directory setup
-    download_dir = os.getcwd()  # Ensure we're using the correct current working directory
-
     # Set up Chrome options
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--no-sandbox")
@@ -116,19 +143,33 @@ def get_astrology_report():
 
         # Check the download directory to ensure the file is downloaded
         downloaded_files = os.listdir(download_dir)
-        text = ""
+        pdf_file_path = None
         for file in downloaded_files:
             if file.endswith('.pdf'):
                 pdf_file_path = os.path.join(download_dir, file)
-                with pdfplumber.open(pdf_file_path) as pdf:
-                    for page in pdf.pages:
-                        text += page.extract_text()
+                break
+
+        if not pdf_file_path:
+            return jsonify({"error": "Failed to download the PDF."}), 500
+
+        # Upload the PDF to S3
+        s3_pdf_object_name = "pdfs/astrology_report.pdf"
+        upload_to_s3(pdf_file_path, AWS_BUCKET_NAME, s3_pdf_object_name)
+
+        # Download the PDF from S3 to extract text
+        download_path = os.path.join(download_dir, "downloaded_astrology_report.pdf")
+        download_from_s3(AWS_BUCKET_NAME, s3_pdf_object_name, download_path)
+
+        # Extract text from the downloaded PDF
+        text = ""
+        with pdfplumber.open(download_path) as pdf:
+            for page in pdf.pages:
+                text += page.extract_text()
 
         if not text:
             return jsonify({"error": "Failed to extract text from the downloaded PDF."}), 500
 
         # Return the extracted text as a JSON response
-        print("Extracted text:", text)
         return jsonify({"extracted_text": text})
 
     except Exception as e:
