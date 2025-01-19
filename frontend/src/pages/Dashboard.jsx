@@ -15,7 +15,7 @@ function Dashboard() {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeButton, setActiveButton] = useState('overview');
-//   const [analyzedData, setAnalyzedData] = useState(location.state?.analyzedData || null);
+  const [analyzedData, setAnalyzedData] = useState(location.state?.formData || null);
 
 
   const handleScroll = () => {
@@ -71,7 +71,7 @@ function Dashboard() {
           <h1 className='text-2xl font-normal figtree-regular w-full py-3 text-center text-[#e6e6e6] mb-2'> <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#8E9EAB] to-[#EEF2F3] outfit-big font-semibold'>SoulBuddy</span> - AI-Powered Spiritual Guide</h1>
         <>
             <section id="overview">
-                <KundliOverview />
+                <KundliOverview analyzedData={analyzedData}/>
             </section>
             <section id="horoscope">
                 <KundliHoroscopes />

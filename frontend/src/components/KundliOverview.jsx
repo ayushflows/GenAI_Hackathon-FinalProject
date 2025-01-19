@@ -1,9 +1,7 @@
 import React from 'react';
 import { FaBriefcase, FaHeart, FaUserGraduate, FaUsers, FaHandshake } from "react-icons/fa"; // Import icons
-import manImg from "../assets/man.png";
 import womanImg from "../assets/woman.png";
 
-// Sample user data
 const userData = {
   name: "Ankur Kumar",
   sex: "Male",
@@ -50,7 +48,9 @@ const cardsBg = [
   },
 ];
 
-function KundliOverview() {
+function KundliOverview({analyzedData}) {
+
+  
   const aspects = [
     { title: "Career", content: userData.career, icon: <FaBriefcase className="text-white" /> },
     { title: "Relationships", content: userData.relationships, icon: <FaHeart className="text-white" /> },
@@ -67,12 +67,12 @@ function KundliOverview() {
           <span className="absolute bottom-[-4px] left-0 w-full h-[4px] bg-orange-500 rounded-full glow-bar"></span>
         </h2>
       </div>
-      <div className='flex flex-col md:flex-row justify-between'>
-      <div className='w-full h-[80px] md:h-auto md:w-[18%]'>
+      <div className='flex flex-col md:flex-row justify-between items-center'>
+      <div className='w-full h-[90px] md:h-auto md:w-[18%]'>
       <img
-          src={userData.sex === "Male" ? manImg : womanImg}
+          src={userData.sex === "Male" ? "https://avatars.githubusercontent.com/u/124663413?s=400&u=f9a2f3c9b2365a847dbd087202a63842c70ed346&v=4" : womanImg}
           alt="Gender Icon"
-          className="left-[-50px] h-full object-contain"
+          className="md:left-[-50px] h-full md:h-auto object-contain rounded-full overflow-hidden"
         />
       </div>
       <div className="mt-4 p-6 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg text-white border border-gray-600 md:w-[80%]">

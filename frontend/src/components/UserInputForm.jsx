@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { MultiStepLoader as Loader } from "../components/ui/multi-step-loader";
 import { submitUserInput } from '../api/userinputAPI';
 
-
 const loadingStates = [
     {
       text: "Getting Your Horoscopes",
@@ -21,7 +20,7 @@ const loadingStates = [
     {
       text: "Sending the Report",
     },
-  ];
+];
 
 function UserInputForm() {
   const navigate = useNavigate();
@@ -48,11 +47,11 @@ function UserInputForm() {
     try {
       const response = await submitUserInput(formData);
       console.log('Form submitted successfully:', response);
-      navigate('/result', { state: { analyzedData } });
+      navigate('/result', { state: { formData } });
     } catch (error) {
       console.error('Error submitting the form:', error);
-      navigate('/result');
-    }finally{
+      navigate('/result', { state: { formData } });
+    } finally {
       setLoading(false);
     }
   };
@@ -69,7 +68,7 @@ function UserInputForm() {
           filter: 'invert(1)',
         }}
       />
-    <Loader loadingStates={loadingStates} loading={loading} duration={1300} />
+      <Loader loadingStates={loadingStates} loading={loading} duration={1300} />
       <div className="relative z-10 bg-gradient-to-br from-[#1e293b] to-[#111827] text-white p-8 rounded-lg shadow-lg max-w-md w-full h-full mt-8">
         <h2 className="text-2xl font-bold text-center mb-6 underline decoration-orange-500">Kundli Input Form</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -80,6 +79,7 @@ function UserInputForm() {
               id="name" 
               value={formData.name}
               onChange={handleChange}
+              required
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
               placeholder="Enter your name" 
             />
@@ -91,6 +91,7 @@ function UserInputForm() {
               id="gender" 
               value={formData.gender}
               onChange={handleChange}
+              required
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               <option value="">Select Gender</option>
@@ -107,6 +108,7 @@ function UserInputForm() {
               id="dob" 
               value={formData.dob}
               onChange={handleChange}
+              required
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
             />
           </div>
@@ -118,6 +120,7 @@ function UserInputForm() {
               id="time" 
               value={formData.time}
               onChange={handleChange}
+              required
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
             />
           </div>
@@ -129,6 +132,7 @@ function UserInputForm() {
               id="location" 
               value={formData.location}
               onChange={handleChange}
+              required
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
               placeholder="Enter your place of birth" 
             />

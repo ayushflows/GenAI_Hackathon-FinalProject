@@ -49,7 +49,7 @@ const LoaderCore = ({
         return (
           (<motion.div
             key={index}
-            className={cn("text-left flex gap-2 mb-4")}
+            className={cn("text-left flex gap-2 mb-4 text-2xl")}
             initial={{ opacity: 0, y: -(value * 40) }}
             animate={{ opacity: opacity, y: -(value * 40) }}
             transition={{ duration: 0.5 }}>
