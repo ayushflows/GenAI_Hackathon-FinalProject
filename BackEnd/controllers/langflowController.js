@@ -23,14 +23,7 @@ module.exports.langflow = async (req, res) => {
                 const pdfData = await pdfParse(dataBuffer);
                 const stringifiedPdfData = JSON.stringify(pdfData.text); 
                 const langflowOutput = await main(stringifiedPdfData);
-                let string_chat = langflowOutput;
-                try {
-                    const stringifiedData = JSON.stringify(string_chat);
-                    const stringChat = await chat_main(stringifiedData);
-                    console.log(stringChat);
-                } catch (chatError) {
-                    console.error('Error in chat processing:', chatError.message);
-                }
+                
                 let parsedResult;
                 try {
                     parsedResult = JSON.parse(langflowOutput);
